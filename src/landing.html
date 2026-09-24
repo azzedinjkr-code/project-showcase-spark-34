@@ -883,6 +883,21 @@ body{
   letter-spacing: 0;
   padding: 9px 22px;
   box-shadow: 0 8px 16px -12px rgba(214, 20, 34, .42), inset 0 1px 0 #fff;
+  animation: pb-glow 1.6s ease-in-out infinite;
+}
+
+/* توهّج أحمر يشتد ويخفت ليستدرج انتباه الزبون */
+@keyframes pb-glow{
+  0%, 100%{
+    box-shadow: 0 8px 16px -12px rgba(214, 20, 34, .42), inset 0 1px 0 #fff, 0 0 0 0 rgba(225, 10, 20, 0);
+  }
+  50%{
+    box-shadow: 0 8px 16px -12px rgba(214, 20, 34, .42), inset 0 1px 0 #fff, 0 0 14px 3px rgba(225, 10, 20, .55), 0 0 30px 8px rgba(225, 10, 20, .25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .pb-flag--new{ animation: none; }
 }
 
 .pb-flag--new::after{ content: none; }
