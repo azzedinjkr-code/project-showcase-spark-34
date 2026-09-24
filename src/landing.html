@@ -2030,6 +2030,36 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
   }
 })();
 </script>
+
+<!-- شريط تجربة مؤقت لاختيار تصميم شارة التوفير -->
+<div id="saveSwitch" dir="rtl">
+  <button type="button" data-v="emerald">زمردي</button>
+  <button type="button" data-v="threed">ثلاثي الأبعاد</button>
+  <button type="button" data-v="mint">نعناعي</button>
+  <button type="button" data-v="current">الحالي</button>
+</div>
+<script>
+(function () {
+  var bar = document.getElementById("saveSwitch");
+  if (!bar) return;
+  var btns = bar.querySelectorAll("button");
+  function set(v) {
+    if (v === "current") document.body.removeAttribute("data-save");
+    else document.body.setAttribute("data-save", v);
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-v") === v ? "true" : "false");
+    }
+    try { localStorage.setItem("saveVariant", v); } catch (e) {}
+  }
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () { set(this.getAttribute("data-v")); });
+  }
+  var saved = "emerald";
+  try { saved = localStorage.getItem("saveVariant") || "emerald"; } catch (e) {}
+  set(saved);
+})();
+</script>
 </body>
+
 </body>
 </html>
