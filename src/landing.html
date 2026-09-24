@@ -1049,27 +1049,22 @@ body{
 
 .price-old-img img { display: block; width: 112px; height: auto; }
 
-/* شارة «توفير 1,000 دج» — HTML/CSS بالكامل مع نبض أخضر */
+/* شارة «توفير 1,000 دج» — HTML/CSS بالكامل مع نبض نعناعي هادئ */
 .pb-save {
   position: relative; flex: 0 1 auto; min-width: 0;
   display: flex; align-items: center; justify-content: center; gap: 9px;
-  padding: 9px 16px;
+  padding: 10px 16px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #fffdf8 0%, #fdf7ec 100%);
-  border: 3px solid #a6562a;
-  box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff;
+  background: linear-gradient(180deg, #f1fbf4 0%, #dff5e6 100%);
+  border: 2px solid #9fd8b4;
+  box-shadow: 0 10px 18px -14px rgba(16,96,56,.6);
   animation: save-pulse 1.6s ease-in-out infinite;
-}
-
-.pb-save::after {
-  content: ""; position: absolute; inset: 4px; border-radius: 999px;
-  border: 1.5px dashed #c9a184; pointer-events: none;
 }
 
 .pb-save .pb-save-txt {
   font-family: var(--font-display);
   font-size: clamp(15px, 4.4vw, 19px); font-weight: 900; line-height: 1.25;
-  white-space: nowrap; color: #0f7a3d;
+  white-space: nowrap; color: #127a45;
   animation: save-glow 1.6s ease-in-out infinite;
 }
 
@@ -1077,17 +1072,17 @@ body{
   order: 2; flex: 0 0 auto;
   display: flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; border-radius: 999px;
-  background: linear-gradient(160deg, #b0602f 0%, #8d4620 100%);
-  color: #fff7ec; box-shadow: 0 8px 14px -8px oklch(.3 .07 45 / .9), inset 0 1px 0 oklch(1 0 0 / .3);
+  background: linear-gradient(160deg, #34c77b 0%, #14a05c 100%); color: #fff;
+  box-shadow: 0 6px 12px -8px rgba(16,120,70,.9);
 }
 
 @keyframes save-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff, 0 0 0 0 rgba(22, 163, 74, 0); }
-  50%      { transform: scale(1.045); box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff, 0 0 0 9px rgba(22, 163, 74, .16); }
+  0%, 100% { transform: scale(1); box-shadow: 0 10px 18px -14px rgba(16,96,56,.6), 0 0 0 0 rgba(20, 160, 92, 0); }
+  50%      { transform: scale(1.045); box-shadow: 0 10px 18px -14px rgba(16,96,56,.6), 0 0 0 9px rgba(20, 160, 92, .14); }
 }
 
 @keyframes save-glow {
-  0%, 100% { color: #0f7a3d; text-shadow: 0 0 0 rgba(22, 163, 74, 0); }
+  0%, 100% { color: #127a45; text-shadow: 0 0 0 rgba(20, 160, 92, 0); }
   50%      { color: #16c25c; text-shadow: 0 0 10px rgba(22, 200, 90, .85), 0 0 22px rgba(22, 200, 90, .45); }
 }
 
@@ -1102,63 +1097,6 @@ body{
   .pb-save .pb-save-ico { width: 28px; height: 28px; }
 }
 
-/* ===== تصاميم تجريبية (مؤقتة) — تبديل عبر شريط التجربة ===== */
-
-/* 1) زمردي عصري */
-body[data-save="emerald"] .pb-save {
-  background: linear-gradient(180deg, #16a34a 0%, #0b6b3a 100%);
-  border: 0;
-  padding: 11px 18px;
-  box-shadow: 0 14px 24px -14px rgba(6, 78, 43, .95), inset 0 1px 0 rgba(255,255,255,.35);
-}
-body[data-save="emerald"] .pb-save::after { inset: 3px; border-color: rgba(255,255,255,.4); }
-body[data-save="emerald"] .pb-save .pb-save-txt { color: #ffffff; animation: none; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
-body[data-save="emerald"] .pb-save .pb-save-ico {
-  background: rgba(255,255,255,.18); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55);
-}
-
-/* 2) ثلاثي الأبعاد (قريب من الصورة الأصلية) */
-body[data-save="threed"] .pb-save {
-  transform: rotate(-2.2deg);
-  background: linear-gradient(180deg, #fffefb 0%, #fdf6e9 100%);
-  border: 4px solid #8d4620;
-  padding: 12px 20px;
-  box-shadow: 0 10px 0 -2px #6f3517, 0 22px 28px -18px rgba(60,26,10,.85), inset 0 2px 0 #fff;
-  animation: save3d-pulse 1.8s ease-in-out infinite;
-}
-body[data-save="threed"] .pb-save::after { border-color: #cda37f; }
-body[data-save="threed"] .pb-save .pb-save-txt { color: #14663a; }
-@keyframes save3d-pulse {
-  0%, 100% { transform: rotate(-2.2deg) scale(1); }
-  50%      { transform: rotate(-2.2deg) scale(1.04); }
-}
-
-/* 3) نعناعي هادئ */
-body[data-save="mint"] .pb-save {
-  background: linear-gradient(180deg, #f1fbf4 0%, #dff5e6 100%);
-  border: 2px solid #9fd8b4;
-  padding: 10px 16px;
-  box-shadow: 0 10px 18px -14px rgba(16,96,56,.6);
-}
-body[data-save="mint"] .pb-save::after { display: none; }
-body[data-save="mint"] .pb-save .pb-save-txt { color: #127a45; }
-body[data-save="mint"] .pb-save .pb-save-ico {
-  background: linear-gradient(160deg, #34c77b 0%, #14a05c 100%); color: #fff;
-  box-shadow: 0 6px 12px -8px rgba(16,120,70,.9);
-}
-
-/* شريط التجربة المؤقت */
-#saveSwitch {
-  position: fixed; left: 50%; transform: translateX(-50%); bottom: 12px; z-index: 9999;
-  display: flex; gap: 6px; padding: 7px 9px; border-radius: 999px;
-  background: rgba(24, 18, 12, .92); box-shadow: 0 12px 26px -12px rgba(0,0,0,.8);
-  font-family: var(--font-body, inherit); direction: rtl;
-}
-#saveSwitch button {
-  border: 0; cursor: pointer; padding: 7px 12px; border-radius: 999px;
-  font-size: 13px; font-weight: 700; color: #f4e9dc; background: rgba(255,255,255,.1);
-}
-#saveSwitch button[aria-pressed="true"] { background: #16a34a; color: #fff; }
 
 </style>
 
@@ -2030,36 +1968,6 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
   }
 })();
 </script>
-
-<!-- شريط تجربة مؤقت لاختيار تصميم شارة التوفير -->
-<div id="saveSwitch" dir="rtl">
-  <button type="button" data-v="emerald">زمردي</button>
-  <button type="button" data-v="threed">ثلاثي الأبعاد</button>
-  <button type="button" data-v="mint">نعناعي</button>
-  <button type="button" data-v="current">الحالي</button>
-</div>
-<script>
-(function () {
-  var bar = document.getElementById("saveSwitch");
-  if (!bar) return;
-  var btns = bar.querySelectorAll("button");
-  function set(v) {
-    if (v === "current") document.body.removeAttribute("data-save");
-    else document.body.setAttribute("data-save", v);
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-v") === v ? "true" : "false");
-    }
-    try { localStorage.setItem("saveVariant", v); } catch (e) {}
-  }
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () { set(this.getAttribute("data-v")); });
-  }
-  var saved = "emerald";
-  try { saved = localStorage.getItem("saveVariant") || "emerald"; } catch (e) {}
-  set(saved);
-})();
-</script>
-</body>
 
 </body>
 </html>
