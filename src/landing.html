@@ -1037,6 +1037,69 @@ body{
 .price-img { margin: 2px 0 0; line-height: 0; }
 
 .price-img img { display: block; width: 100%; max-width: 392px; height: auto; margin: 0 auto; }
+
+/* صف: شارة التوفير (كود) + صورة السعر القديم */
+.price-row {
+  margin: 6px auto 0; width: 100%; max-width: 392px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.price-old-img { line-height: 0; flex: 0 0 auto; }
+
+.price-old-img img { display: block; width: 116px; height: auto; }
+
+/* شارة «توفير 1,000 دج» — HTML/CSS بالكامل مع نبض أخضر */
+.pb-save {
+  position: relative; flex: 1 1 auto; max-width: 256px; min-width: 0;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 12px 11px 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffdf8 0%, #fdf7ec 100%);
+  border: 3px solid #a6562a;
+  box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff;
+  animation: save-pulse 1.6s ease-in-out infinite;
+}
+
+.pb-save::after {
+  content: ""; position: absolute; inset: 4px; border-radius: 999px;
+  border: 1.5px dashed #c9a184; pointer-events: none;
+}
+
+.pb-save .pb-save-txt {
+  font-family: var(--font-display);
+  font-size: clamp(15px, 4.4vw, 19px); font-weight: 900; line-height: 1.25;
+  white-space: nowrap; color: #0f7a3d;
+  animation: save-glow 1.6s ease-in-out infinite;
+}
+
+.pb-save .pb-save-ico {
+  position: absolute; inset-inline-start: -8px; top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 999px;
+  background: linear-gradient(160deg, #b0602f 0%, #8d4620 100%);
+  color: #fff7ec; box-shadow: 0 8px 14px -8px oklch(.3 .07 45 / .9), inset 0 1px 0 oklch(1 0 0 / .3);
+}
+
+@keyframes save-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff, 0 0 0 0 rgba(22, 163, 74, 0); }
+  50%      { transform: scale(1.045); box-shadow: 0 12px 20px -14px oklch(.32 .07 45 / .85), inset 0 1px 0 #fff, 0 0 0 9px rgba(22, 163, 74, .16); }
+}
+
+@keyframes save-glow {
+  0%, 100% { color: #0f7a3d; text-shadow: 0 0 0 rgba(22, 163, 74, 0); }
+  50%      { color: #16c25c; text-shadow: 0 0 10px rgba(22, 200, 90, .85), 0 0 22px rgba(22, 200, 90, .45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pb-save, .pb-save .pb-save-txt { animation: none; }
+}
+
+@media (max-width: 360px) {
+  .price-row { gap: 6px; }
+  .price-old-img img { width: 100px; }
+  .pb-save { padding: 9px 10px 9px 30px; }
+  .pb-save .pb-save-ico { width: 38px; height: 38px; }
+}
 </style>
 
 <link rel="stylesheet" href="assets/fonts.css"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><meta name="description" content="مجموعة العناية باليدين: غسول يد مرطب 500 مل + صابونتان طبيعيتان بزيوت نباتية، بسعر 2,200 دج بدل 3,200 دج. توصيل لكل ولايات الجزائر، الدفع عند الاستلام."><meta property="og:title" content="مجموعة العناية باليدين — 2,200 دج مع الدفع عند الاستلام"><meta property="og:description" content="غسول يد مرطب وصابونتان طبيعيتان بروائح الجريب فروت والماندرين والنعناع. توصيل لكل الولايات."><meta property="og:type" content="product">
